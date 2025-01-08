@@ -12,7 +12,8 @@ on:
 jobs:
   greeting:
     runs-on: ubuntu-latest  # Utilise un environnement Ubuntu
-
+    env:  # Définition des variables d'environnement
+          MESSAGE: "Déploiement réussi"  # Variable d'environnement globale pour ce job
     steps:
       - name: Checkout code  # Étape pour récupérer le code source du dépôt
         uses: actions/checkout@v3
