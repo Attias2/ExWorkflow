@@ -1,12 +1,16 @@
 name: Hello World Workflow
 
 on:
-  push:
+  push:  # Déclenche le workflow lorsqu'un push est effectué
     branches:
-      - main  # Le workflow s'exécute lorsqu'un push est effectué sur la branche 'main'
+      - main  # Limité aux pushes sur la branche 'main'
+
+  pull_request:  # Déclenche le workflow lorsqu'une pull request est ouverte ou mise à jour
+    branches:
+      - main  # Limité aux pull requests ciblant la branche 'main'
 
 jobs:
-  greeting:  # Nom du job
+  greeting:
     runs-on: ubuntu-latest  # Utilise un environnement Ubuntu
 
     steps:
