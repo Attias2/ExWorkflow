@@ -1,0 +1,17 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches:
+      - main  # Exécute le workflow lorsqu'un push est effectué sur la branche 'main'
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest  # Utilise un runner basé sur Ubuntu
+
+    steps:
+      - name: Checkout code  # Étape pour vérifier le code
+        uses: actions/checkout@v3
+
+      - name: Print Hello World  # Étape qui affiche "Hello World"
+        run: echo "Hello World"
