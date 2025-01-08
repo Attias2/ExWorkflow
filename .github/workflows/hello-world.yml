@@ -13,4 +13,5 @@ jobs:
       - name: Checkout code  # Étape pour récupérer le code source du dépôt
         uses: actions/checkout@v3
 
-      - name: Print Hello World  # Ét
+      - name: Print Hello World  # Étape pour afficher "Hello World" dans les logs
+        run: echo "Hello World"
