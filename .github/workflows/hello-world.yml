@@ -31,3 +31,6 @@ jobs:
 
       - name: Print Hello World  # Étape pour afficher "Hello World" dans les logs
         run: echo "Hello World"
+
+      - name: Print Deployment Message  # Étape pour afficher la variable MESSAGE
+        run: echo "$MESSAGE"
