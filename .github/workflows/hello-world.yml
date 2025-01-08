@@ -1,13 +1,13 @@
 name: Hello World Workflow
 
 on:
-  push:  # Déclenche le workflow lorsqu'un push est effectué
+  push:
     branches:
-      - main  # Limité aux pushes sur la branche 'main'
+      - main  # Le workflow s'exécute lorsqu'un push est effectué sur la branche 'main'
 
-  pull_request:  # Déclenche le workflow lorsqu'une pull request est ouverte ou mise à jour
+  pull_request:
     branches:
-      - main  # Limité aux pull requests ciblant la branche 'main'
+      - main  # Le workflow se déclenche sur les pull requests vers la branche 'main'
 
 jobs:
   greeting:
@@ -16,6 +16,17 @@ jobs:
     steps:
       - name: Checkout code  # Étape pour récupérer le code source du dépôt
         uses: actions/checkout@v3
+
+      - name: Set up Node.js  # Étape pour configurer Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Choisissez la version de Node.js que vous souhaitez utiliser
+
+      - name: Install dependencies with npm  # Étape pour installer les dépendances
+        run: npm install
+
+      - name: Run linting  # Étape pour vérifier le code avec npm run lint
+        run: npm run lint
 
       - name: Print Hello World  # Étape pour afficher "Hello World" dans les logs
         run: echo "Hello World"
